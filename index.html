@@ -81,6 +81,7 @@
 
          e("formulario").onsubmit = function(){
              let p = v("palabra");
+             e("palabra").focus();
              if( p.toLowerCase().trim() === palabra(secreto).toLowerCase().trim() ){
                  acierto(secreto);
                  later( siguiente );
@@ -92,6 +93,7 @@
          }
 
          e("escuchar").onclick = function(){
+             e("palabra").focus();
              play(descripcion(secreto),-5);
          }
          
@@ -127,13 +129,16 @@
              
          ];
 
+         function addSecreto(s){
+             secretos.push(s)
+         }
+         
 	 function addSecretos(str){
 	   str.
 	     replace(/\.|;|:|1|2|3|4|5|6|7|8|9|0/g, " ").
              split(" ").
              filter( (el) => el != "" ).
-             forEach( (el) => secretos.push(el) );
-
+             forEach( addSecreto );
 	 }
 
 	 addSecretos( "había2. hoy3. una vez4. ayer5. hombre6. entonces7. siempre8. después9. iba10. a veces11. barco12. vacaciones13. día. dibujo15. hasta(5)16. hay (6)17. invierno18. verano19. primavera20. otoño21. jefe22. jersey23. canguro4. máquina25. marrón26. verde27. rojo28. árbol29. abeja30. bosque31. cigüeña32. selva33. oveja34. ciervo35. frío36. gitana37. guerra38. rey39. viejo40. guitarra41. mayor42. muy43. quería44. queso45. zanahoria46. huevo47. hueso48. íbamo49. boca50. extranjero51. está. están53. vosotras54. vuestro55. tío56. abuela57. hijo58. vecina59. habitación60. lenguaje61. matemáticas62. historia3. inglés64. yo65. avión66. ambulancia67. bicicleta68. carrera69. fútbol70. balón71. juego72. columpio73. navidad74. agujero75. caja76. feliz77. también78. ahora79. más80. aquí81. mucho82. gobierno83. país84. dijo85. hecho86. tenía87. hacia8. vamos89. según90. allí91. todavía92. número93. a través94. voy95. hora96. cinco97. quiero98. cabeza99. algún100. María");
