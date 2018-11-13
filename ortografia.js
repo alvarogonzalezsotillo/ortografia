@@ -19,6 +19,8 @@ function play(value,speed,callback){
     let link = `https://api.voicerss.org/?key=${key}&hl=es-es&r=${speed}&src=${value}`
     //e("player").src = link;
     e("video").onended = callback;
+    l("El callback es:" + callback);
+    l(callback);
     e("video").src = link;
 }
 
@@ -46,12 +48,19 @@ function later(f,m){
 
 function acierto(p,callback){
     e("palabra").value = "";
-    play("Correcto, la siguiente palabra es",0,callback);
+    //e("enviar").disabled = true;
+    let realCallback = function(){
+        e("enviar").disabled = false;
+        if( callback )
+            callback();
+    }
+    play("Correcto, la siguiente palabra es",0,realCallback);
 }
 
 function fallo(secreto,p){
     e("palabra").value="";
-    play( `Incorrecto. Intenta otra vez ${descripcion(secreto)}`);
+    e("enviar").disabled = true;
+    play( `Incorrecto. Intenta otra vez ${descripcion(secreto)}`,0,()=> e("enviar").disabled = false);
 }
 
 
