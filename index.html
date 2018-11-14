@@ -6,9 +6,15 @@
          .oculto{
              display: none;
          }
+         #secretoPlayer{
+             height: 5em;
+             display: inline;
+         }
+         #formulario{
+             display: inline;
+         }
 
         </style>
-
     </head>
 
 
@@ -17,13 +23,26 @@
         <form id="formulario" autocomplete="off">
             <input autocomplete="false" name="hidden" type="text" class="oculto">
             <input type="text" id="palabra" placeholder="Palabra a leer" autocomplete="off" />
-            <input type="submit" id="enviar" value="Enviar"/>
+            <input type="submit" disabled="true" id="enviar" value="Enviar"/>
             <input type="button" id="escuchar" value="Escuchar"/>
         </form>
-        <iframe class="oculto" id="player"></iframe>
-        <video id="video" autoplay controls preload="auto">
+        <video id="secretoPlayer" autoplay controls preload="auto">
           Sin soporte de video
         </video>
+
+        <video class="oculto" id="aciertoPlayer"  controls preload="auto">
+          Sin soporte de video
+        </video>
+
+        <video class="oculto" id="falloPlayer" controls preload="auto">
+          Sin soporte de video
+        </video>
+
+        <video class="oculto" id="siguientePlayer" controls preload="auto">
+          Sin soporte de video
+        </video>
+
+
 
         <script type="text/javascript" src="secretos.js"></script>
         <script type="text/javascript" src="ortografia.js"></script>

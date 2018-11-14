@@ -41,6 +41,7 @@ var secretos = [
     ["vez","sinónimo de turno"],
     ["través", "de atravesar"],
     ["iba","del verbo ir"],
+    ["están", "plural del verbo estar"]
 ];
 
 addSecretos( `
@@ -90,10 +91,9 @@ addSecretos( `
   zanahoria
   huevo
   hueso
-  íbamo
+  íbamos
   boca
   extranjero
-  están
   vosotras
   vuestro
   tío

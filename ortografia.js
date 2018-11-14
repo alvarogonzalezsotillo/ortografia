@@ -7,21 +7,27 @@ function siguiente(){
     e("palabra").value = "";
     secreto = r(secretos);
     e("escuchar").click();
-}         
+}
 
-function play(value,speed,callback){
+function normalizeWord(w){
+    return encodeURI( w.trim().toLowerCase() );
+}
+
+function play(video,value,speed,callback){
     l(value);
     if( !speed || !Number.isInteger(speed)){
         speed = 0;
     }
-    value = value.replace("&"," ");
+    value = normalizeWord(value);
     let key = '7ce3372599eb47b18cf59793351ceaa2';
-    let link = `https://api.voicerss.org/?key=${key}&hl=es-es&r=${speed}&src=${value}`
-    //e("player").src = link;
-    e("video").onended = callback;
-    l("El callback es:" + callback);
-    l(callback);
-    e("video").src = link;
+    let link = `https://api.voicerss.org/?src=${value}&r=${speed}&key=${key}&hl=es-es`
+    video.pause();
+    video.onended = callback;
+    if( video.src != link ){
+        video.src = link;
+    }
+    video.currentTime = 0;
+    video.play();
 }
 
 function palabra(secreto){
@@ -48,19 +54,19 @@ function later(f,m){
 
 function acierto(p,callback){
     e("palabra").value = "";
-    //e("enviar").disabled = true;
+    e("enviar").disabled = true;
     let realCallback = function(){
         e("enviar").disabled = false;
         if( callback )
             callback();
     }
-    play("Correcto, la siguiente palabra es",0,realCallback);
+    play(e("aciertoPlayer"),"Correcto, la siguiente palabra es",0,realCallback);
 }
 
 function fallo(secreto,p){
     e("palabra").value="";
     e("enviar").disabled = true;
-    play( `Incorrecto. Intenta otra vez ${descripcion(secreto)}`,0,()=> e("enviar").disabled = false);
+    play( e("falloPlayer"), "Incorrecto. Intenta otra vez", 0,()=> e("escuchar").click());
 }
 
 
@@ -79,14 +85,16 @@ e("formulario").onsubmit = function(){
 }
 
 e("escuchar").onclick = function(){
-    e("palabra").focus();
-    play(descripcion(secreto),-5);
+    play(e("secretoPlayer"), descripcion(secreto),-5, () => {
+        e("palabra").focus();
+        e("enviar").disabled = false;
+    });
 }
 
 
 
 
 var secreto = "";
-play( "Escribe la siguiente palabra",0,siguiente);
+play( e("secretoPlayer"), "Escribe la siguiente palabra",0,siguiente);
 
 l(JSON.stringify(secretos));
