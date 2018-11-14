@@ -1,11 +1,16 @@
 function l(msg){ console.log(msg); }
 function e(id){ return document.getElementById(id); }
+function c(tag){ return document.createElement(tag); }
+function a(p,c){ p.appendChild(c); }
+function p(p,c){ p.insertBefore(c,p.firstChild);}
 function v(id){ return e(id).value; }
 function r(a){return a[Math.floor(Math.random()*a.length)]; }
 
 function siguiente(){
     e("palabra").value = "";
     secreto = r(secretos);
+    resultado = new Outcome(secreto);
+    resultado.render();
     e("escuchar").click();
 }
 
@@ -53,6 +58,7 @@ function later(f,m){
 }
 
 function acierto(p,callback){
+    resultado.hit();
     e("palabra").value = "";
     e("enviar").disabled = true;
     let realCallback = function(){
@@ -64,6 +70,7 @@ function acierto(p,callback){
 }
 
 function fallo(secreto,p){
+    resultado.miss();
     e("palabra").value="";
     e("enviar").disabled = true;
     play( e("falloPlayer"), "Incorrecto. Intenta otra vez", 0,()=> e("escuchar").click());
@@ -91,8 +98,29 @@ e("escuchar").onclick = function(){
     });
 }
 
+class Outcome{
+    constructor(word){
+        this.word = word;
+        this.element = c("resultado");
+    }
 
+    miss(){
+        let fail = c("error");
+        a(this.element,fail);
+    }
 
+    hit(){
+        let success = c("acierto");
+        success.innerHtml = this.word;
+        a(this.element,success);
+    }
+
+    render(){
+        p(e("resultados"),this.element);
+    }
+}
+
+var resultado = null;
 
 var secreto = "";
 play( e("secretoPlayer"), "Escribe la siguiente palabra",0,siguiente);
