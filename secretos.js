@@ -41,12 +41,12 @@ var secretos = [
     ["vez","sinónimo de turno"],
     ["través", "de atravesar"],
     ["iba","del verbo ir"],
-    ["están", "plural del verbo estar"]
+    ["están", "plural del verbo estar"],
+    ["hoy", "el día actual"]
 ];
 
 addSecretos( `
   había
-  hoy
   una
   ayer
   hombre
@@ -59,7 +59,6 @@ addSecretos( `
   día
   dibujo
   hasta
-  hay
   invierno
   verano
   primavera
