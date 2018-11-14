@@ -7,8 +7,10 @@
              display: none;
          }
          #secretoPlayer{
-             height: 5em;
-             display: inline;
+             height: 2em;
+	     heigth: 2em;
+             display: block;
+	     margin: auto;
          }
          #formulario{
              display: inline;
@@ -18,13 +20,39 @@
              display: block;
          }
 
+	 acierto, error{
+	     display: inline;
+	     margin: 0.5em;
+	 }
+
+	 acierto{
+	     color: green;
+	 }
+
+	 acierto::before{
+	     content: "";
+	 }
+
+	 error{
+	     color:red;
+	 }
+
+	 error::before{
+	     content: "x";
+	 }
+
         </style>
     </head>
 
 
 
     <body>
-        <form id="formulario" autocomplete="off">
+        <video id="secretoPlayer" autoplay controls preload="auto">
+          Sin soporte de video
+        </video>
+
+
+      <form id="formulario" autocomplete="off">
             <input autocomplete="false" name="hidden" type="text" class="oculto">
             <input type="text" id="palabra" placeholder="Palabra" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
             <input type="submit" disabled="true" id="enviar" value="Enviar"/>
@@ -33,9 +61,6 @@
 
         <div id="resultados"><div>
         
-        <video id="secretoPlayer" autoplay controls preload="auto">
-          Sin soporte de video
-        </video>
 
         <video class="oculto" id="aciertoPlayer"  controls preload="auto">
           Sin soporte de video

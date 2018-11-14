@@ -9,7 +9,7 @@ function r(a){return a[Math.floor(Math.random()*a.length)]; }
 function siguiente(){
     e("palabra").value = "";
     secreto = r(secretos);
-    resultado = new Outcome(secreto);
+    resultado = new Outcome(descripcion(secreto));
     resultado.render();
     e("escuchar").click();
 }
@@ -82,8 +82,7 @@ e("formulario").onsubmit = function(){
     let p = v("palabra");
     e("palabra").focus();
     if( p.toLowerCase().trim() === palabra(secreto).toLowerCase().trim() ){
-        acierto(secreto);
-        later( siguiente );
+        acierto(secreto,siguiente);
     }
     else{
         fallo(secreto,p);
@@ -111,7 +110,7 @@ class Outcome{
 
     hit(){
         let success = c("acierto");
-        success.innerHtml = this.word;
+        success.innerHTML = this.word;
         a(this.element,success);
     }
 
