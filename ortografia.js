@@ -30,9 +30,12 @@ function play(video,value,speed,callback){
     video.onended = callback;
     if( video.src != link ){
         video.src = link;
+        video.onloadeddata = function(){ video.play(); }; 
     }
-    video.currentTime = 0;
-    video.play();
+    else{
+        video.currentTime = 0;
+        video.play();
+    }
 }
 
 function palabra(secreto){
@@ -91,7 +94,7 @@ e("formulario").onsubmit = function(){
 }
 
 e("escuchar").onclick = function(){
-    play(e("secretoPlayer"), descripcion(secreto),-5, () => {
+    play(e("secretoPlayer"), descripcion(secreto),-3, () => {
         e("palabra").focus();
         e("enviar").disabled = false;
     });
