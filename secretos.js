@@ -1,5 +1,7 @@
 function addSecreto(s){
-    secretos.push(s)
+    if( secretos.indexOf(s) < 0 ){
+        secretos.push(s)
+    }
 }
 
 function addSecretos(str){
@@ -12,7 +14,7 @@ function addSecretos(str){
 
 var secretos = [
     "divisible",
-    "invisible"
+    "invisible",
     "proyecto",
     "proyección",
     "trabajo",
