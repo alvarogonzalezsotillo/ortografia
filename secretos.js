@@ -4,14 +4,20 @@ function addSecreto(s){
 
 function addSecretos(str){
     str.
-	replace(/\.|;|:|1|2|3|4|5|6|7|8|9|0/g, " ").
+	replace(/\.|;|:|1|2|3|4|5|6|7|8|9|0|\n/g, " ").
         split(" ").
         filter( (el) => el != "" ).
         forEach( addSecreto );
 }
 
 var secretos = [
-    "proyecto", "proyección", "trabajo", "tubería", "jirafa",
+    "divisible",
+    "invisible"
+    "proyecto",
+    "proyección",
+    "trabajo",
+    "tubería",
+    "jirafa",
     ["vaca", "el animal"],
     ["baca", "utensilio"],
     ["hay", "el verbo"],
@@ -140,4 +146,4 @@ addSecretos( `
   cabeza
   algún
   María`
-);
+           );

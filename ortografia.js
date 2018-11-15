@@ -125,6 +125,10 @@ class Outcome{
 var resultado = null;
 
 var secreto = "";
-play( e("secretoPlayer"), "Escribe la siguiente palabra",0,siguiente);
 
-l(JSON.stringify(secretos));
+window.onload = function(){
+    l(JSON.stringify(secretos,null,2));
+    play( e("secretoPlayer"), "Escribe la siguiente palabra",0,siguiente);
+}
+
+
