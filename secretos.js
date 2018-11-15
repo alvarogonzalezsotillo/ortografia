@@ -55,7 +55,6 @@ var secretos = [
 
 addSecretos( `
   había
-  una
   ayer
   hombre
   entonces

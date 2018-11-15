@@ -3,16 +3,24 @@
 }
 #secretoPlayer{
     height: 2em;
-    heigth: 2em;
-    display: block;
     margin: auto;
 }
-#formulario{
-    display: inline;
+
+#resultados{
+    width: 80%;
+    text-align: left;
+    margin:auto;
 }
 
 resultado{
+    padding: 0.2em;
     display: block;
+    width:100%;
+    border-top: 1px solid black;
+}
+
+resultado:first-child{
+    border-top: none;
 }
 
 acierto, error{
@@ -28,6 +36,16 @@ error{
     color:red;
 }
 
+#playground{
+    text-align: center;
+}
+
+#controles{
+    display: block;
+    text-align: left;
+    width: 80%;
+    margin: auto;
+}
 
 #intro{
     font-size:  2em;
@@ -35,6 +53,7 @@ error{
 }
 
 .grande{
-    font-size: 2em;
+    font-size: 1.5em;
+    font-face: fantasy;
 }
 

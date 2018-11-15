@@ -1,64 +1,68 @@
 <html>
 
-    <head>
-        <title>Test de ortografía</title>
-        <meta charset="UTF-8">
-        
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <title>Test de ortografía</title>
+    <meta charset="UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <<link rel="stylesheet" href="ortografia.css" type="text/css" media="screen" />
-        
-        <style>
+    <link rel="stylesheet" href="ortografia.css" type="text/css" media="screen" />
+    
+    <style>
     </style>
-    </head>
+  </head>
 
 
 
-    <body>
+  <body>
 
-        <div id="intro" class="grande">
-            <p>
-                El juego consiste en teclear correctamente las palabras que oirás.
-            </p>
-            <p>
-                ¡Cuidado! Casi todas tendrán alguna dificultad ortográfica.
-            </p>
-            <input type="button" id="closeIntro" value="Comenzar el juego"/>
-        </div>
+    <div id="intro" class="grande">
+      <p>
+        El juego consiste en teclear correctamente las palabras que oirás.
+      </p>
+      <p>
+        ¡Cuidado! Casi todas tendrán alguna dificultad ortográfica.
+      </p>
+      <input type="button" id="closeIntro" value="Comenzar el juego"/>
+    </div>
 
-        <div id="playground" class="oculto" class="grande">
-            <video id="secretoPlayer" controls preload="auto">
-                Sin soporte de video
-            </video>
+    <div id="playground" class="oculto">
 
 
-            <input type="text" id="palabra" placeholder="Palabra" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
-            <input type="button" disabled="true" id="enviar" value="Enviar"/>
-            <input type="button" id="escuchar" value="Escuchar"/>
+      <div id="controles">
+        <input type="text" id="palabra" placeholder="Palabra" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+      
+        <input type="button" disabled="true" id="enviar" value="Enviar"/>
+        <input type="button" id="escuchar" value="Escuchar otra vez"/>
 
-            <div id="resultados" class="grande">
-            </div>
-            
+      </div>
+      <div id="resultados" class="grande">
+      </div>
+      
 
-            <video class="oculto" id="aciertoPlayer"  controls preload="auto">
-                Sin soporte de video
-            </video>
+      <video class="oculto" id="secretoPlayer" controls preload="auto">
+        Sin soporte de video
+      </video>
+      
+      <video class="oculto" id="aciertoPlayer"  controls preload="auto">
+        Sin soporte de video
+      </video>
 
-            <video class="oculto" id="falloPlayer" controls preload="auto">
-                Sin soporte de video
-            </video>
+      <video class="oculto" id="falloPlayer" controls preload="auto">
+        Sin soporte de video
+      </video>
 
-            <video class="oculto" id="siguientePlayer" controls preload="auto">
-                Sin soporte de video
-            </video>
+      <video class="oculto" id="siguientePlayer" controls preload="auto">
+        Sin soporte de video
+      </video>
 
-            <script type="text/javascript" src="secretos.js"></script>
-            <script type="text/javascript" src="ortografia.js"></script>
+      <script type="text/javascript" src="secretos.js"></script>
+      <script type="text/javascript" src="ortografia.js"></script>
 
-        </div>
-            
-            
-    </body>
+    </div>
+    
+    
+  </body>
 
 
 </html>

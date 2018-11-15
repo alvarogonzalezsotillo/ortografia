@@ -62,12 +62,18 @@ function later(f,m){
     window.setTimeout(f,m);
 }
 
+function disableButtons(b){
+    e("enviar").disabled = b;
+    e("escuchar").disabled = b;
+
+}
+
 function acierto(p,callback){
     resultado.hit();
     e("palabra").value = "";
-    e("enviar").disabled = true;
+    disableButtons(true);
     let realCallback = function(){
-        e("enviar").disabled = false;
+        disableButtons( false );
         if( callback )
             callback();
     }
@@ -77,8 +83,8 @@ function acierto(p,callback){
 function fallo(secreto,p){
     resultado.miss();
     e("palabra").value="";
-    e("enviar").disabled = true;
-    play( e("falloPlayer"), "Incorrecto. Intenta otra vez", 0,()=> e("escuchar").click());
+    disableButtons(true);
+    play( e("falloPlayer"), "Incorrecto. Intenta otra vez", 0, escuchar );
 }
 
 
@@ -102,12 +108,17 @@ e("enviar").onclick = function(){
     return false;
 }
 
-e("escuchar").onclick = function(){
+function escuchar(){
+    disableButtons(true);
     play(e("secretoPlayer"), descripcion(secreto),-3, () => {
         e("palabra").focus();
-        e("enviar").disabled = false;
+        disableButtons(false);
     });
 }
+
+e("escuchar").onclick = escuchar;
+
+
 
 e("closeIntro").onclick = function(){
     siguiente();
