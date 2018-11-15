@@ -5,6 +5,8 @@ function a(p,c){ p.appendChild(c); }
 function p(p,c){ p.insertBefore(c,p.firstChild);}
 function v(id){ return e(id).value; }
 function r(a){return a[Math.floor(Math.random()*a.length)]; }
+function rc(el,c){ e(el).classList.remove(c);}
+function ac(el,c){ e(el).classList.add(c);}
 
 function siguiente(){
     e("palabra").value = "";
@@ -81,7 +83,14 @@ function fallo(secreto,p){
 
 
 
-e("formulario").onsubmit = function(){
+e("palabra").onkeypress = function(ev){
+    let k = ev.which || ev.keyCode;
+    if( k == 13 ){
+        e("enviar").click();
+    }
+}
+
+e("enviar").onclick = function(){
     let p = v("palabra");
     e("palabra").focus();
     if( p.toLowerCase().trim() === palabra(secreto).toLowerCase().trim() ){
@@ -100,6 +109,12 @@ e("escuchar").onclick = function(){
     });
 }
 
+e("closeIntro").onclick = function(){
+    siguiente();
+    rc("playground","oculto");
+    ac("intro","oculto");
+}
+
 class Outcome{
     constructor(word){
         this.word = word;
@@ -107,13 +122,13 @@ class Outcome{
     }
 
     randomMiss(){
-        let array = ["💩","😞","😠","😭","😈"];
+        let array = ["💩","😞","😠","😭","😈","🤬","😱","🤦‍♀️","🤷‍♂️","👎","🙊","💔","🏴‍☠️"];
         return r(array);
     }
 
     miss(){
         let fail = c("error");
-        error.innerHTML(randomMiss());
+        fail.innerHTML = this.randomMiss();
         a(this.element,fail);
     }
 
@@ -132,9 +147,5 @@ var resultado = null;
 
 var secreto = "";
 
-window.onload = function(){
-    l(JSON.stringify(secretos,null,2));
-    siguiente();
-}
 
 
