@@ -106,8 +106,14 @@ class Outcome{
         this.element = c("resultado");
     }
 
+    randomMiss(){
+        let array = ["💩","😞","😠","😭","😈"];
+        return r(array);
+    }
+
     miss(){
         let fail = c("error");
+        error.innerHTML(randomMiss());
         a(this.element,fail);
     }
 
@@ -128,7 +134,7 @@ var secreto = "";
 
 window.onload = function(){
     l(JSON.stringify(secretos,null,2));
-    play( e("secretoPlayer"), "Escribe la siguiente palabra",0,siguiente);
+    siguiente();
 }
 
 

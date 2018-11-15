@@ -1,6 +1,7 @@
 <html>
 
     <head>
+        <title>Test de ortografía</title>
         <meta charset="UTF-8"> 
         <style>
          .oculto{
@@ -29,16 +30,8 @@
 	     color: green;
 	 }
 
-	 acierto::before{
-	     content: "";
-	 }
-
 	 error{
 	     color:red;
-	 }
-
-	 error::before{
-	     content: "x";
 	 }
 
         </style>
@@ -48,11 +41,11 @@
 
     <body>
         <video id="secretoPlayer" controls preload="auto">
-          Sin soporte de video
+            Sin soporte de video
         </video>
 
 
-      <form id="formulario" autocomplete="off">
+        <form id="formulario" autocomplete="off">
             <input autocomplete="false" name="hidden" type="text" class="oculto">
             <input type="text" id="palabra" placeholder="Palabra" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
             <input type="submit" disabled="true" id="enviar" value="Enviar"/>
@@ -60,23 +53,23 @@
         </form>
 
         <div id="resultados"><div>
-        
+            
 
-        <video class="oculto" id="aciertoPlayer"  controls preload="auto">
-          Sin soporte de video
-        </video>
+            <video class="oculto" id="aciertoPlayer"  controls preload="auto">
+                Sin soporte de video
+            </video>
 
-        <video class="oculto" id="falloPlayer" controls preload="auto">
-          Sin soporte de video
-        </video>
+            <video class="oculto" id="falloPlayer" controls preload="auto">
+                Sin soporte de video
+            </video>
 
-        <video class="oculto" id="siguientePlayer" controls preload="auto">
-          Sin soporte de video
-        </video>
+            <video class="oculto" id="siguientePlayer" controls preload="auto">
+                Sin soporte de video
+            </video>
 
-        <script type="text/javascript" src="secretos.js"></script>
-        <script type="text/javascript" src="ortografia.js"></script>
-        
+            <script type="text/javascript" src="secretos.js"></script>
+            <script type="text/javascript" src="ortografia.js"></script>
+            
     </body>
 
 
