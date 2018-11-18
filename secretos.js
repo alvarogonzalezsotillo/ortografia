@@ -50,7 +50,14 @@ var secretos = [
     ["través", "de atravesar"],
     ["iba","del verbo ir"],
     ["están", "plural del verbo estar"],
-    ["hoy", "el día actual"]
+    ["hoy", "el día actual"],
+    ["voy", "del verbo ir"],
+    "cadáver",
+    "absurdo",
+    ["hasta","la preposición"],
+    ["asta", "el cuerno"],
+    ["más", "de sumar"],
+    ["mas", "conjunción similar a pero"]
 ];
 
 addSecretos( `
@@ -65,7 +72,6 @@ addSecretos( `
   vacaciones
   día
   dibujo
-  hasta
   invierno
   verano
   primavera
@@ -126,9 +132,7 @@ addSecretos( `
   feliz
   también
   ahora
-  más
   aquí
-  mucho
   gobierno
   país
   dijo
@@ -140,9 +144,7 @@ addSecretos( `
   allí
   todavía
   número
-  voy
   hora
-  cinco
   quiero
   cabeza
   algún
