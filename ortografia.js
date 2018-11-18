@@ -7,13 +7,16 @@ function v(id){ return e(id).value; }
 function r(a){return a[Math.floor(Math.random()*a.length)]; }
 function rc(el,c){ e(el).classList.remove(c);}
 function ac(el,c){ e(el).classList.add(c);}
+function hc(el,c){ return e(el).classList.contains(c);}
+function tc(el,c){ if(hc(el,c)) rc(el,c); else ac(el,c); }
+
 
 function siguiente(){
     e("palabra").value = "";
     secreto = r(secretos);
     resultado = new Outcome(descripcion(secreto));
     resultado.render();
-    e("escuchar").click();
+    escuchar();
 }
 
 function normalizeWord(w){
@@ -41,7 +44,6 @@ function play(video,value,speed,callback){
 }
 
 function palabra(secreto){
-    l( typeof secreto )
     if( typeof secreto === "string" )
         return secreto;
     else
@@ -88,6 +90,30 @@ function fallo(secreto,p){
 }
 
 
+function fillInfo(){
+    function normalize(s){ return s.normalize('NFD').replace(/[\u0300-\u036f]/g, ""); }
+    secretos.sort( function(a,b){
+        a = palabra(a).toLowerCase();
+        b = palabra(b).toLowerCase();
+        a = normalize(a);
+        b = normalize(b);
+        if( a > b ) return 1;
+        if( a < b ) return -1;
+        return 0;
+    });
+    secretos.forEach( function(s){
+        let iw = c("infoWord");
+        iw.innerHTML = descripcion(s);
+        a(e("infoContents"),iw);
+    });
+};
+
+fillInfo();
+
+
+e("showInfo").onclick = function(){
+    tc("info","oculto");
+}
 
 e("palabra").onkeypress = function(ev){
     let k = ev.which || ev.keyCode;
@@ -133,7 +159,7 @@ class Outcome{
     }
 
     randomMiss(){
-        let array = ["💩","😞","😠","😭","😈","🤬","😱","👎","🙊","💔","☠"];
+        let array = ["💩","😞","😠","😭","😈","🤬","😱","🤦","🤷️","👎","🙊","💔","☠️"];
         return r(array);
     }
 

@@ -16,14 +16,20 @@
 
   <body>
 
-    <div id="intro" class="grande">
-      <p>
+    <div id="intro">
+      <p  class="grande">
         El juego consiste en teclear correctamente las palabras que oirás.
       </p>
-      <p>
+      <p class="grande">
         ¡Cuidado! Casi todas tendrán alguna dificultad ortográfica.
       </p>
       <input type="button" id="closeIntro" value="Comenzar el juego"/>
+      <input type="button" id="showInfo" value="Ver todas las palabras (para profesores)">
+
+    <div id="info" class="oculto">
+      <div id="infoContents"></div>
+    </div>
+
     </div>
 
     <div id="playground" class="oculto">
@@ -33,34 +39,36 @@
         <input type="text" id="palabra" placeholder="Palabra" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
       
         <input type="button" disabled="true" id="enviar" value="Enviar"/>
-        <input type="button" id="escuchar" value="Escuchar otra vez"/>
+        <input type="button" disabled="true" id="escuchar" value="Escuchar otra vez"/>
 
       </div>
       <div id="resultados" class="grande">
       </div>
       
 
-      <video class="oculto" id="secretoPlayer" controls preload="auto">
-        Sin soporte de video
-      </video>
+      <audio id="secretoPlayer" controls preload="auto">
+        Sin soporte de audio
+      </audio>
       
-      <video class="oculto" id="aciertoPlayer"  controls preload="auto">
-        Sin soporte de video
-      </video>
+      <audio class="oculto" id="aciertoPlayer"  controls preload="auto">
+        Sin soporte de audio
+      </audio>
 
-      <video class="oculto" id="falloPlayer" controls preload="auto">
-        Sin soporte de video
-      </video>
+      <audio class="oculto" id="falloPlayer" controls preload="auto">
+        Sin soporte de audio
+      </audio>
 
-      <video class="oculto" id="siguientePlayer" controls preload="auto">
-        Sin soporte de video
-      </video>
+      <audio class="oculto" id="siguientePlayer" controls preload="auto">
+        Sin soporte de audio
+      </audio>
 
-      <script type="text/javascript" src="secretos.js"></script>
-      <script type="text/javascript" src="ortografia.js"></script>
 
     </div>
-    
+
+
+
+    <script type="text/javascript" src="secretos.js"></script>
+    <script type="text/javascript" src="ortografia.js"></script>
     
   </body>
 

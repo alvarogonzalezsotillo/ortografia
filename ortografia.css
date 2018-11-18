@@ -52,8 +52,20 @@ error{
     text-align: center;
 }
 
-.grande{
-    font-size: 1.5em;
-    font-face: fantasy;
+#info{
+    -----line-height: 1em;
+    border: 1px solid #ffd563;
+    margin: .5em;
+    padding: .2em;
 }
 
+infoWord{
+    text-align: center;
+    background: #ffd563;
+    border: 2px solid #ffbb00;
+    border-radius: 5px;
+    padding: 2px;
+    margin: 3px;
+    display: inline-block;
+    font-size: 10px;
+}
