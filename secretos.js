@@ -57,7 +57,13 @@ var secretos = [
     ["hasta","la preposición"],
     ["asta", "el cuerno"],
     ["más", "de sumar"],
-    ["mas", "conjunción similar a pero"]
+    ["mas", "conjunción similar a pero"],
+    "sencillez",
+    "expresión",
+    "gestación",
+    "autidivo",
+    "honradez",
+    "privilegio"
 ];
 
 addSecretos( `
