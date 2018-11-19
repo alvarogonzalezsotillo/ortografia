@@ -63,7 +63,8 @@ var secretos = [
     "gestación",
     "autidivo",
     "honradez",
-    "privilegio"
+    "privilegio",
+    "llanura"
 ];
 
 addSecretos( `
