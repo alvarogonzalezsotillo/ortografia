@@ -5,9 +5,9 @@ function a(p,c){ p.appendChild(c); }
 function p(p,c){ p.insertBefore(c,p.firstChild);}
 function v(id){ return e(id).value; }
 function r(a){return a[Math.floor(Math.random()*a.length)]; }
-function rc(el,c){ e(el).classList.remove(c);}
-function ac(el,c){ e(el).classList.add(c);}
-function hc(el,c){ return e(el).classList.contains(c);}
+function rc(el,c){ el.classList.remove(c);}
+function ac(el,c){ el.classList.add(c);}
+function hc(el,c){ return el.classList.contains(c);}
 function tc(el,c){ if(hc(el,c)) rc(el,c); else ac(el,c); }
 
 
@@ -90,29 +90,10 @@ function fallo(secreto,p){
 }
 
 
-function fillInfo(){
-    function normalize(s){ return s.normalize('NFD').replace(/[\u0300-\u036f]/g, ""); }
-    secretos.sort( function(a,b){
-        a = palabra(a).toLowerCase();
-        b = palabra(b).toLowerCase();
-        a = normalize(a);
-        b = normalize(b);
-        if( a > b ) return 1;
-        if( a < b ) return -1;
-        return 0;
-    });
-    secretos.forEach( function(s){
-        let iw = c("infoWord");
-        iw.innerHTML = descripcion(s);
-        a(e("infoContents"),iw);
-    });
-};
-
-fillInfo();
 
 
 e("showInfo").onclick = function(){
-    tc("info","oculto");
+    tc(e("info"),"oculto");
 }
 
 e("palabra").onkeypress = function(ev){
@@ -148,8 +129,8 @@ e("escuchar").onclick = escuchar;
 
 e("closeIntro").onclick = function(){
     siguiente();
-    rc("playground","oculto");
-    ac("intro","oculto");
+    rc(e("playground"),"oculto");
+    ac(e("intro"),"oculto");
 }
 
 class Outcome{
@@ -158,9 +139,12 @@ class Outcome{
         this.element = c("resultado");
     }
 
+    emojis(){
+        return ["💩","😞","😠","😭","😈","😱","👎","🙊","💔","☠","🙏","💣","🚽","🙍","🙇‍","😨","😩","😳","😖","😵"];
+    }
+    
     randomMiss(){
-        let array = ["💩","😞","😠","😭","😈","😱","👎","🙊","💔","☠","🙏","💣","🚽","🙍","🙇‍","😨","😩","😳","😖","😵"];
-        return r(array);
+        return r(this.emojis());
     }
 
     miss(){
@@ -179,6 +163,35 @@ class Outcome{
         p(e("resultados"),this.element);
     }
 }
+
+function fillInfo(){
+    function normalize(s){ return s.normalize('NFD').replace(/[\u0300-\u036f]/g, ""); }
+    secretos.sort( function(a,b){
+        a = palabra(a).toLowerCase();
+        b = palabra(b).toLowerCase();
+        a = normalize(a);
+        b = normalize(b);
+        if( a > b ) return 1;
+        if( a < b ) return -1;
+        return 0;
+    });
+    secretos.forEach( function(s){
+        let iw = c("infoWord");
+        iw.innerHTML = descripcion(s);
+        a(e("infoContents"),iw);
+    });
+
+    a(e("infoContents"), c("p"));
+    
+    let emojis = (new Outcome()).emojis();
+    emojis.forEach( function(s){
+        let iw = c("emoji");
+        iw.innerHTML = descripcion(s);
+        a(e("infoContents"),iw);
+    });
+};
+
+fillInfo();
 
 var resultado = null;
 
