@@ -83,5 +83,4 @@ var secretos = [
 
 ];
 
-addSecretos(
-           );
+addSecretos("");

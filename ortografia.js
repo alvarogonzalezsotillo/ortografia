@@ -9,12 +9,13 @@ function rc(el,c){ el.classList.remove(c);}
 function ac(el,c){ el.classList.add(c);}
 function hc(el,c){ return el.classList.contains(c);}
 function tc(el,c){ if(hc(el,c)) rc(el,c); else ac(el,c); }
-var index = 0;
+var index = 111110;
 function r(a){
     if(index<a.length){
-        return a[indice];
+        return a[index];
     }
     a = shufle(a);
+    console.log(a);
     index = 0;
     return r(a);
 }
@@ -216,7 +217,5 @@ fillInfo();
 var resultado = null;
 
 var secreto = "";
-
-
 
 
