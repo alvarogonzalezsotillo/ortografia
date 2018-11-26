@@ -4,13 +4,33 @@ function c(tag){ return document.createElement(tag); }
 function a(p,c){ p.appendChild(c); }
 function p(p,c){ p.insertBefore(c,p.firstChild);}
 function v(id){ return e(id).value; }
-function r(a){return a[Math.floor(Math.random()*a.length)]; }
+function rnew(a){return a[Math.floor(Math.random()*a.length)]; }
 function rc(el,c){ el.classList.remove(c);}
 function ac(el,c){ el.classList.add(c);}
 function hc(el,c){ return el.classList.contains(c);}
 function tc(el,c){ if(hc(el,c)) rc(el,c); else ac(el,c); }
+var index = 0;
+function r(a){
+    if(index<a.length){
+        return a[indice];
+    }
+    a = shufle(a);
+    index = 0;
+    return r(a);
+}
+function shufle(array){
+    var currentIndex = array.length, temporaryValue, randomIndex;
 
+    while (0 !== currentIndex) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+    }
 
+    return array;
+}
 function siguiente(){
     e("palabra").value = "";
     secreto = r(secretos);
@@ -196,6 +216,7 @@ fillInfo();
 var resultado = null;
 
 var secreto = "";
+
 
 
 
