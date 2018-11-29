@@ -68,7 +68,7 @@ var secretos = [
     "deber",
     ["Sí","Afirmativo"],
     ["Si","Condicional"],
-    "Ralacionado",
+    "Relacionado",
     "Percibir",
     ["el","Articulo"],
     ["él","Pronombre"],
