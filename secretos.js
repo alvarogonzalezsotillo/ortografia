@@ -13,7 +13,7 @@ function addSecretos(str){
 }
 
 var secretos = [
-    "divisible",
+    ["divisible","de dividir"],
     "invisible",
     "proyecto",
     "proyección",
@@ -34,14 +34,14 @@ var secretos = [
     ["haya", "el árbol"],
     ["haya", "del verbo haber"],
     ["halla", "del verbo hallar"],
-    "hallar",
+    ["hallar","el verbo"],
     "verbo",
     "adverbio",
     "árbol",
     ["está","de verbo estar"],
     "estructura",
     ["huyes", "del verbo huir"],
-    ["trabas", "sinónimo de obstáculos"],
+    ["traba", "sinónimo de obstáculo"],
     "insensibilicemos",
     ["atrás", "la parte trasera"],
     "dejándolo",
