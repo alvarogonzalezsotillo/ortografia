@@ -101,7 +101,7 @@ var secretos = [
     "habilidad",
     "estuvieron",
     "anduviste",
-    "ttuvierais",
+    "tuvierais",
     "resolver",
     "volver",
     "evitar",
