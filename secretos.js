@@ -143,6 +143,18 @@ var secretos = [
     "huida",
     "ahuecar",
     "cacahuete",
+    "países",
+    "ocupación",
+    "economía",
+    "político",
+    "fué",
+    "suyo",
+    "capítulos",
+    "refiriéndose",
+    "río",
+    "estructura",
+    "típica",
+    
 ];
 
 addSecretos("");
