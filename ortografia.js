@@ -162,6 +162,7 @@ class Outcome{
     miss(){
         let fail = c("error");
         fail.innerHTML = this.randomMiss();
+        fail.title = e("palabra").value;
         a(this.element,fail);
     }
 
