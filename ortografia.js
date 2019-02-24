@@ -23,9 +23,20 @@ function shufle(array){
 
     return array;
 }
+var index = secretos.length+100;
+function nextSecreto(){
+    index++
+    if(secretos.length-1>index){
+        return secretos[index]
+    }else{
+        index = 0;
+        secretos = shufle(secretos);
+    }
+}
 function siguiente(){
     e("palabra").value = "";
-    secreto = r(secretos);
+    //secreto = r(secretos);
+    secreto = nextSecreto();
     resultado = new Outcome(descripcion(secreto));
     resultado.render();
     escuchar();
