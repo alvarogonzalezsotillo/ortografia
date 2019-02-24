@@ -1,5 +1,6 @@
 function addSecreto(s){
     if( secretos.indexOf(s) < 0 ){
+        
         secretos.push(s)
     }
 }
