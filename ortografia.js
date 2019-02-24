@@ -10,7 +10,19 @@ function ac(el,c){ el.classList.add(c);}
 function hc(el,c){ return el.classList.contains(c);}
 function tc(el,c){ if(hc(el,c)) rc(el,c); else ac(el,c); }
 
+function shufle(array){
+    var currentIndex = array.length, temporaryValue, randomIndex;
 
+    while (0 !== currentIndex) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+    }
+
+    return array;
+}
 function siguiente(){
     e("palabra").value = "";
     secreto = r(secretos);
@@ -196,6 +208,5 @@ fillInfo();
 var resultado = null;
 
 var secreto = "";
-
 
 

@@ -13,7 +13,7 @@ function addSecretos(str){
 }
 
 var secretos = [
-    "divisible",
+    ["divisible","de dividir"],
     "invisible",
     "proyecto",
     "proyección",
@@ -34,14 +34,14 @@ var secretos = [
     ["haya", "el árbol"],
     ["haya", "del verbo haber"],
     ["halla", "del verbo hallar"],
-    "hallar",
+    ["hallar","el verbo"],
     "verbo",
     "adverbio",
     "árbol",
     ["está","de verbo estar"],
     "estructura",
     ["huyes", "del verbo huir"],
-    ["trabas", "sinónimo de obstáculos"],
+    ["traba", "sinónimo de obstáculo"],
     "insensibilicemos",
     ["atrás", "la parte trasera"],
     "dejándolo",
@@ -61,98 +61,100 @@ var secretos = [
     "sencillez",
     "expresión",
     "gestación",
-    "autidivo",
+    "auditivo",
     "honradez",
-    "privilegio"
+    "privilegio",
+    "llanura",
+    "deber",
+    ["Sí","Afirmativo"],
+    ["Si","Condicional"],
+    "Relacionado",
+    "Percibir",
+    ["el","Artículo"],
+    ["él","Pronombre"],
+    "automático",
+    "llevándolo",
+    "carácter",
+    "divulgativo",
+    "género",
+    "homogéneo",
+    "Marqués",
+    "Artículo",
+    "canapé",
+    "Inés",
+    "Trébol",
+    "libélula",
+    "apúntame",
+    "escribir",
+    "hervir",
+    "vivir",
+    "servir",
+    "contribuir",
+    "saltaba",
+    "vudú",
+    "buzón",
+    "biología",
+    "ovni",
+    "club",
+    "nauseabundo",
+    "obtener",
+    "habilidad",
+    "estuvieron",
+    "anduviste",
+    "tuvierais",
+    "resolver",
+    "volver",
+    "evitar",
+    "evetual",
+    "evolución",
+    "evasión",
+    "ébano",
+    "octavo",
+    "nuevo",
+    "leve",
+    "altivo",
+    "hervivoro",
+    "vibora",
+    "homnivora",
+    "advertir",
+    "subención",
+    "obvio",
+    "mesilla",
+    "cuadernillo",
+    "costilla",
+    "adyacente",
+    "disyuntiva",
+    "acoger",
+    "redirigir",
+    "geología",
+    "generalización",
+    "contagio",
+    "prodigiosa",
+    "meteorológico",
+    "enigmática",
+    "gratis",
+    "ajeno",
+    "teja",
+    "ojera",
+    "rebajaré",
+    "dijiste",
+    "hiato",
+    "hierro",
+    "huida",
+    "ahuecar",
+    "cacahuete",
+    "países",
+    "ocupación",
+    "economía",
+    "político",
+    "fué",
+    "suyo",
+    "capítulos",
+    "refiriéndose",
+    "río",
+    "estructura",
+    "típica",
+    
 ];
 
-addSecretos( `
-  había
-  ayer
-  hombre
-  entonces
-  siempre
-  después
-  veces
-  barco
-  vacaciones
-  día
-  dibujo
-  invierno
-  verano
-  primavera
-  otoño
-  jefe
-  jersey
-  canguro
-  máquina
-  marrón
-  verde
-  rojo
-  árbol
-  abeja
-  bosque
-  cigüeña
-  selva
-  oveja
-  ciervo
-  frío
-  gitana
-  guerra
-  rey
-  viejo
-  guitarra
-  mayor
-  muy
-  quería
-  queso
-  zanahoria
-  huevo
-  hueso
-  íbamos
-  boca
-  extranjero
-  vosotras
-  vuestro
-  tío
-  abuela
-  hijo
-  vecina
-  habitación
-  lenguaje
-  matemáticas
-  historia
-  inglés
-  yo
-  avión
-  ambulancia
-  bicicleta
-  carrera
-  fútbol
-  balón
-  juego
-  columpio
-  navidad
-  agujero
-  caja
-  feliz
-  también
-  ahora
-  aquí
-  gobierno
-  país
-  dijo
-  hecho
-  tenía
-  hacia
-  vamos
-  según
-  allí
-  todavía
-  número
-  hora
-  quiero
-  cabeza
-  algún
-  María`
-           );
+addSecretos("");
