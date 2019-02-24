@@ -10,6 +10,11 @@ function ac(el,c){ el.classList.add(c);}
 function hc(el,c){ return el.classList.contains(c);}
 function tc(el,c){ if(hc(el,c)) rc(el,c); else ac(el,c); }
 
+var listaDeErrores = [];
+var palabrasJugadas = 0;
+var fallado = false
+var palabrasFalladas = 0;
+
 function shufle(array){
     var currentIndex = array.length, temporaryValue, randomIndex;
 
@@ -25,12 +30,15 @@ function shufle(array){
 }
 var index = secretos.length+100;
 function nextSecreto(){
+    fallado = false
+    
     index++
     if(secretos.length-1>index){
         return secretos[index]
     }else{
         index = 0;
         secretos = shufle(secretos);
+        return nextSecreto();
     }
 }
 function siguiente(){
@@ -94,6 +102,8 @@ function disableButtons(b){
 }
 
 function acierto(p,callback){
+    palabrasJugadas++
+    actualizaReporte();
     resultado.hit();
     e("palabra").value = "";
     disableButtons(true);
@@ -106,6 +116,11 @@ function acierto(p,callback){
 }
 
 function fallo(secreto,p){
+    if(!fallado){
+        fallado = true
+        palabrasFalladas++;
+        listaDeErrores.push(palabra(secreto));
+    }
     resultado.miss();
     e("palabra").value="";
     disableButtons(true);
@@ -138,6 +153,17 @@ e("enviar").onclick = function(){
     return false;
 }
 
+e("reporte").onclick = function () {
+    tc(e("reportebox"),"oculto");
+    actualizaReporte();
+
+}
+function actualizaReporte(){
+    e("jugadas").innerHTML = palabrasJugadas
+    e("falladas").innerHTML = palabrasFalladas;
+    e("porcentaje").innerHTML = palabrasFalladas/palabrasJugadas*100+"%";
+    e("fallos").innerHTML = listaDeErrores.toString();
+}
 function escuchar(){
     disableButtons(true);
     play(e("secretoPlayer"), descripcion(secreto),-3, () => {

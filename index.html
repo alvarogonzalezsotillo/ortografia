@@ -41,10 +41,18 @@
       
         <input type="button" disabled="true" id="enviar" value="Enviar"/>
         <input type="button" disabled="true" id="escuchar" value="Escuchar otra vez"/>
+        <input type="button" id="reporte" value="Reporte de errores"/>
+
 
       </div>
       
-      
+      <div id="reportebox" class="oculto">
+        porcentaje de aciertos: <div id="porcentaje"></div>
+        palabras jugadas: <div id="jugadas"></div>
+        palabras falladas: <div id="falladas"></div>
+        lista de palabras falladas:
+        <div id="fallos"></div>
+      </div>
 
       <audio id="secretoPlayer" style="margin:10px" controls preload="auto">
         Sin soporte de audio
