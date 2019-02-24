@@ -29,7 +29,7 @@ function play(video,value,speed,callback){
         speed = 0;
     }
     value = normalizeWord(value);
-    let key = '7ce3372599eb47b18cf59793351ceaa2';
+    let key = 'f6b512bd777f413089885ecf5f891b38';
     let link = `https://api.voicerss.org/?src=${value}&r=${speed}&key=${key}&hl=es-es`
     video.pause();
     video.onended = callback;
