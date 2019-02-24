@@ -14,8 +14,11 @@ var listaDeErrores = [];
 var palabrasJugadas = 0;
 var fallado = false
 var palabrasFalladas = 0;
+var currentStrike = 0;
+var bigestStrike = 0;
 
 function shufle(array){
+    actualizaReporte()
     var currentIndex = array.length, temporaryValue, randomIndex;
 
     while (0 !== currentIndex) {
@@ -103,6 +106,8 @@ function disableButtons(b){
 
 function acierto(p,callback){
     palabrasJugadas++
+    if(currentStrike>bigestStrike) bigestStrike = currentStrike;
+    currentStrike++
     actualizaReporte();
     resultado.hit();
     e("palabra").value = "";
@@ -116,6 +121,7 @@ function acierto(p,callback){
 }
 
 function fallo(secreto,p){
+    currentStrike = 0;
     if(!fallado){
         fallado = true
         palabrasFalladas++;
@@ -159,10 +165,13 @@ e("reporte").onclick = function () {
 
 }
 function actualizaReporte(){
+    if(currentStrike>bigestStrike) bigestStrike = currentStrike;
     e("jugadas").innerHTML = palabrasJugadas
     e("falladas").innerHTML = palabrasFalladas;
     e("porcentaje").innerHTML = palabrasFalladas/palabrasJugadas*100+"%";
     e("fallos").innerHTML = listaDeErrores.toString();
+    e("Racha").innerHTML = currentStrike;
+    e("RACHA").innerHTML = bigestStrike;
 }
 function escuchar(){
     disableButtons(true);
