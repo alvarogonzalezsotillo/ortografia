@@ -121,6 +121,7 @@ function acierto(p,callback){
 }
 
 function fallo(secreto,p){
+    actualizaReporte()
     currentStrike = 0;
     if(!fallado){
         fallado = true
