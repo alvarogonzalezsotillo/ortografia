@@ -14,6 +14,16 @@ function addSecretos(str){
 }
 
 var secretos = [
+    "rebelde",
+    "revuelta",
+    "debilidad",
+    "credibilidad",
+    "oblongo",
+    "ovoide",
+    "huevo",
+    "débil",
+    ["más", "de adición"],
+    ["mas", "disyuntiva"],
     ["divisible","de dividir"],
     "invisible",
     "proyecto",
