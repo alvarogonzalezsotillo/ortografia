@@ -19,7 +19,6 @@ var secretos = [
     "debilidad",
     "credibilidad",
     "oblongo",
-    "ovoide",
     "huevo",
     "débil",
     ["más", "de adición"],
