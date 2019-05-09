@@ -174,7 +174,11 @@ var secretos = [
     "río",
     "estructura",
     "típica",
-    
+    "uruguay",
+    "aprovechar",
+    "inyectar",
+    "patinaje",
+    "majestuoso"
 ];
 
 addSecretos("");
