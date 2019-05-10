@@ -151,7 +151,7 @@ var secretos = [
     "fué",
     "suyo",
     "capítulos",
-    "refiriéndose",
+    ["refiriéndose","hacer alusión a algo"],
     "río",
     "estructura",
     "típica",
