@@ -178,7 +178,14 @@ var secretos = [
     "aprovechar",
     "inyectar",
     "patinaje",
-    "majestuoso"
+    "majestuoso",
+    "ateísmo",
+    "verosímil",
+    "Fernández",
+    "romántico",
+    "rebeldía",
+    "imaginación",
+    "imagen"
 ];
 
 addSecretos("");
