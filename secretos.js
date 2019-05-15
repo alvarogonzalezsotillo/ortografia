@@ -185,7 +185,9 @@ var secretos = [
     "romántico",
     "rebeldía",
     "imaginación",
-    "imagen"
+    "imagen",
+    "espontáneo",
+    ["será", "del verbo ser"]
 ];
 
 addSecretos("");
