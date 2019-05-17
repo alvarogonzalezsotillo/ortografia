@@ -167,7 +167,7 @@ var secretos = [
     "ocupación",
     "economía",
     "político",
-    "fué",
+    "fue",
     "suyo",
     "capítulos",
     ["refiriéndose","hacer alusión a algo"],
@@ -189,7 +189,10 @@ var secretos = [
     "espontáneo",
     ["será", "del verbo ser"],
     "hiato",
-    "a menudo"
+    "a menudo",
+    "avocado",
+    "contemporánea",
+    "ibáñez"
 ];
 
 addSecretos("");
