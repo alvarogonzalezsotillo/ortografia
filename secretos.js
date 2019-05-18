@@ -192,7 +192,14 @@ var secretos = [
     "a menudo",
     "avocado",
     "contemporánea",
-    "ibáñez"
+    "ibáñez",
+    "juzgar",
+    "carácter",
+    "término",
+    "físicos",
+    "viceversa",
+    "coacción",
+    "maximas"
 ];
 
 addSecretos("");
