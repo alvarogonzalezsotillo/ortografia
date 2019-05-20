@@ -199,7 +199,10 @@ var secretos = [
     "físicos",
     "viceversa",
     "coacción",
-    "maximas"
+    "máximas",
+    "expectativa",
+    "espectador",
+    "espectáculo"
 ];
 
 addSecretos("");
