@@ -202,7 +202,9 @@ var secretos = [
     "máximas",
     "expectativa",
     "espectador",
-    "espectáculo"
+    "espectáculo",
+    ["búho", "ave nocturna"],
+    ["prohíbe", "del verbo prohibir"]
 ];
 
 addSecretos("");
