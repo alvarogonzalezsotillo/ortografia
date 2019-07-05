@@ -1,4 +1,4 @@
-import {secretos} from "./secretos.mjs";
+import {secretos} from "./secretos.js";
 
 function l(msg){ console.log(msg); }
 function e(id){ return document.getElementById(id); }

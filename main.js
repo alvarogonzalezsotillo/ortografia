@@ -1,4 +1,4 @@
-import {v,m} from "./unmodulo.mjs";
+import {v,m} from "./unmodulo.js";
 
 console.log(`m:${m}`);
 console.log(`v:${v}`);
