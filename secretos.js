@@ -192,7 +192,7 @@ var secretos = [
     "a menudo",
     "avocado",
     "contemporánea",
-    "ibáñez",
+    "Ibáñez",
     "juzgar",
     "carácter",
     "término",
