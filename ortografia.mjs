@@ -1,3 +1,5 @@
+import {secretos} from "./secretos.mjs";
+
 function l(msg){ console.log(msg); }
 function e(id){ return document.getElementById(id); }
 function c(tag){ return document.createElement(tag); }
@@ -12,7 +14,7 @@ function tc(el,c){ if(hc(el,c)) rc(el,c); else ac(el,c); }
 
 var listaDeErrores = [];
 var palabrasJugadas = 0;
-var fallado = false
+var fallado = false;
 var palabrasFalladas = 0;
 var currentStrike = 0;
 var bigestStrike = 0;

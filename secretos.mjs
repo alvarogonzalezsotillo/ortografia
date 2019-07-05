@@ -1,7 +1,7 @@
 function addSecreto(s){
     if( secretos.indexOf(s) < 0 ){
         
-        secretos.push(s)
+        secretos.push(s);
     }
 }
 
@@ -208,3 +208,5 @@ var secretos = [
 ];
 
 addSecretos("");
+
+export {secretos};
