@@ -1,4 +1,8 @@
-import {secretos} from "./secretos.js";
+import {
+    secretos,
+    palabra,
+    descripcion
+} from "./secretos.js";
 
 function l(msg){ console.log(msg); }
 function e(id){ return document.getElementById(id); }
@@ -55,29 +59,6 @@ function siguiente(){
     escuchar();
 }
 
-function normalizeWord(w){
-    return encodeURI( w.trim().toLowerCase() );
-}
-
-function makeSoundURL(value, speed){
-
-    if( !speed || !Number.isInteger(speed)){
-        speed = 0;
-    }
-    value = normalizeWord(value);
-    let key = 'f6b512bd777f413089885ecf5f891b38';
-    let link = `https://api.voicerss.org/?src=${value}&r=${speed}&key=${key}&hl=es-es`
-
-    return link;
-}
-
-function makeLocalSoundURL(value,speed){
-    value = normalizeWord(value);
-    let link = `./audios/${value}.mp3`;
-
-    return link;
-}
-
 function play(video,value,speed,callback){
     l(value);
     if( !speed || !Number.isInteger(speed)){
@@ -96,20 +77,6 @@ function play(video,value,speed,callback){
         video.currentTime = 0;
         video.play();
     }
-}
-
-function palabra(secreto){
-    if( typeof secreto === "string" )
-        return secreto;
-    else
-        return secreto[0];
-}
-
-function descripcion(secreto){
-    if( typeof secreto === "string" )
-        return secreto;
-    else
-        return secreto[0] + ", " + secreto[1];
 }
 
 function later(f,m){
