@@ -1,8 +1,12 @@
 import {
-    secretos,
+    secretos as secretosOriginales,
     palabra,
-    descripcion
+    descripcion,
 } from "./secretos.js";
+
+import {
+    normalizeWord
+} from "./audios.js";
 
 function l(msg){ console.log(msg); }
 function e(id){ return document.getElementById(id); }
@@ -37,6 +41,8 @@ function shufle(array){
 
     return array;
 }
+let secretos = secretosOriginales.slice();
+
 var index = secretos.length+100;
 function nextSecreto(){
     fallado = false

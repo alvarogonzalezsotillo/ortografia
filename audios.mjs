@@ -27,5 +27,6 @@ function getLocalSoundURL(value,speed){
 
  export{
     getSoundURL,
-    getLocalSoundURL
+    getLocalSoundURL,
+    normalizeWord
 }; 
