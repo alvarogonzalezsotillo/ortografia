@@ -25,6 +25,8 @@ function downloadFile(url, filename){
     const request = https.get(url, function(response) {
         log(`Connected: ${url}`);
         response.pipe(file);
+    }).on('close', ()=>{
+        log( `Closed:${url}`);
     });
 }
 
