@@ -1,8 +1,14 @@
 import {
-    secretos,
+    secretos as secretosOriginales,
     palabra,
-    descripcion
+    descripcion,
 } from "./secretos.js";
+
+import {
+    normalizeWord,
+    mensajeCorrecto,
+    mensajeIncorrecto
+} from "./audios.js";
 
 function l(msg){ console.log(msg); }
 function e(id){ return document.getElementById(id); }
@@ -37,6 +43,8 @@ function shufle(array){
 
     return array;
 }
+let secretos = secretosOriginales.slice();
+
 var index = secretos.length+100;
 function nextSecreto(){
     fallado = false
@@ -105,7 +113,7 @@ function acierto(p,callback){
         if( callback )
             callback();
     }
-    play(e("aciertoPlayer"),"Correcto, la siguiente palabra es",0,realCallback);
+    play(e("aciertoPlayer"),mensajeCorrecto,0,realCallback);
 }
 
 function fallo(secreto,p){
@@ -119,7 +127,7 @@ function fallo(secreto,p){
     resultado.miss();
     e("palabra").value="";
     disableButtons(true);
-    play( e("falloPlayer"), "Incorrecto. Intenta otra vez", 0, escuchar );
+    play( e("falloPlayer"), mensajeIncorrecto, 0, escuchar );
 }
 
 

@@ -1,4 +1,6 @@
 
+const mensajeCorrecto = "Correcto, la siguiente palabra es";
+const mensajeIncorrecto = "Incorrecto. Intenta otra vez";
 
 function normalizeWord(w){
     return encodeURI( w.trim().toLowerCase() );
@@ -25,7 +27,10 @@ function getLocalSoundURL(value,speed){
     return link;
 }
 
- export{
+export{
     getSoundURL,
-    getLocalSoundURL
+    getLocalSoundURL,
+    normalizeWord,
+    mensajeCorrecto,
+    mensajeIncorrecto
 }; 
