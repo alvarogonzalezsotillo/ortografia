@@ -6,6 +6,8 @@ import {
 
 import {
     normalizeWord,
+    getLocalSoundURL,
+
     mensajeCorrecto,
     mensajeIncorrecto
 } from "./audios.js";
@@ -75,6 +77,7 @@ function play(video,value,speed,callback){
     value = normalizeWord(value);
     let key = 'f6b512bd777f413089885ecf5f891b38';
     let link = `https://api.voicerss.org/?src=${value}&r=${speed}&key=${key}&hl=es-es`
+    link =     getLocalSoundURL(value);
     video.pause();
     video.onended = callback;
     if( video.src != link ){
