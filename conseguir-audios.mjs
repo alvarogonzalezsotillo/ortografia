@@ -23,8 +23,15 @@ const log = (s) => console.log(s);
 
 
 function downloadFile(url, filename){
+    if( fs.existsSync(filename + ".ok") ){
+        log( `already:${url}`);
+        return;
+    }
+
     const file = fs.createWriteStream(filename);
     log(`Connecting: ${url}`);
+
+    
     const request = https.get(url, function(response) {
         log(`Connected: ${url}`);
         response.pipe(file);
@@ -42,6 +49,10 @@ function downloadFile(url, filename){
 // downloadFile("http://i3.ytimg.com/vi/J---aiyznGQ/mqdefault.jpg","algo.jpg");
 
 
+function sleep(time){
+    let stop = new Date().getTime();
+    while(new Date().getTime() < stop + time);
+}
 
 const speed = -3;
 function downloadAudio(desc){
@@ -49,7 +60,7 @@ function downloadAudio(desc){
     const filename = getLocalSoundURL(desc);
 
     downloadFile(url, filename);
-    
+    sleep(200);
 }
 for(let s in secretos ){
     const secreto = secretos[s];

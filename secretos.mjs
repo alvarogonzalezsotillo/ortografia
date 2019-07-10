@@ -1,3 +1,5 @@
+// -*- mode: js2; -*-
+
 function addSecreto(s){
     if( secretos.indexOf(s) < 0 ){
         

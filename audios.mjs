@@ -1,3 +1,4 @@
+// -*- mode: js2; -*-
 
 const mensajeCorrecto = "Correcto, la siguiente palabra es";
 const mensajeIncorrecto = "Incorrecto. Intenta otra vez";
@@ -14,7 +15,7 @@ function getSoundURL(value, speed){
         speed = 0;
     }
     value = normalizeWord(value);
-    let key = 'f6b512bd777f413089885ecf5f891b38';
+    let key = '3bac807ea5304df1a98d7752a1dc60be';
     let link = `https://api.voicerss.org/?src=${value}&r=${speed}&key=${key}&hl=es-es`;
 
     return link;

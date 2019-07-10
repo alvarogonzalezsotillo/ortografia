@@ -1,3 +1,5 @@
+// -*- mode: js2; -*-
+
 import {
     secretos as secretosOriginales,
     palabra,
@@ -49,11 +51,11 @@ let secretos = secretosOriginales.slice();
 
 var index = secretos.length+100;
 function nextSecreto(){
-    fallado = false
+    fallado = false;
     
-    index++
+    index++;
     if(secretos.length-1>index){
-        return secretos[index]
+        return secretos[index];
     }else{
         index = 0;
         secretos = shufle(secretos);
@@ -74,15 +76,18 @@ function play(video,value,speed,callback){
     if( !speed || !Number.isInteger(speed)){
         speed = 0;
     }
-    value = normalizeWord(value);
     let key = 'f6b512bd777f413089885ecf5f891b38';
-    let link = `https://api.voicerss.org/?src=${value}&r=${speed}&key=${key}&hl=es-es`
-    link =     getLocalSoundURL(value);
+    let link = `https://api.voicerss.org/?src=${normalizeWord(value)}&r=${speed}&key=${key}&hl=es-es`;
+    link = getLocalSoundURL(value);
     video.pause();
+    
     video.onended = callback;
     if( video.src != link ){
         video.src = link;
-        video.onloadeddata = function(){ video.play(); }; 
+        video.load();
+        video.onloadeddata = function(){
+            video.play();
+        }; 
     }
     else{
         video.currentTime = 0;
