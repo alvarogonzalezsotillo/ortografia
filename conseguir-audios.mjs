@@ -6,7 +6,10 @@ from "./secretos.mjs";
 
 import {
     getSoundURL,
-    getLocalSoundURL
+    getLocalSoundURL,
+    mensajeCorrecto,
+    mensajeIncorrecto
+
 } from "./audios.mjs";
 
 
@@ -25,20 +28,34 @@ function downloadFile(url, filename){
     const request = https.get(url, function(response) {
         log(`Connected: ${url}`);
         response.pipe(file);
-    }).on('close', ()=>{
-        log( `Closed:${url}`);
+    });
+    request.on('close', ()=>{
+        log( `close:${url}`);
+        fs.appendFileSync(filename+".ok","ok");
+    });
+    request.on("error", (e)=>{
+        log( `error:${url}`);
+        fs.appendFileSync(filename+".error",e);
     });
 }
 
 // downloadFile("http://i3.ytimg.com/vi/J---aiyznGQ/mqdefault.jpg","algo.jpg");
 
+
+
 const speed = -3;
-for(let s in secretos ){
-    const secreto = secretos[s];
-    const desc = descripcion(secreto);
+function downloadAudio(desc){
     const url = getSoundURL(desc,speed);
     const filename = getLocalSoundURL(desc);
 
     downloadFile(url, filename);
+    
+}
+for(let s in secretos ){
+    const secreto = secretos[s];
+    const desc = descripcion(secreto);
+    downloadAudio(desc);
 }
 
+downloadAudio(mensajeCorrecto);
+downloadAudio(mensajeIncorrecto);
