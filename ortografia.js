@@ -71,6 +71,8 @@ function siguiente(){
     escuchar();
 }
 
+let useLocalAudio = true;
+
 function play(video,value,speed,callback){
     l(value);
     if( !speed || !Number.isInteger(speed)){
@@ -78,7 +80,9 @@ function play(video,value,speed,callback){
     }
     let key = 'f6b512bd777f413089885ecf5f891b38';
     let link = `https://api.voicerss.org/?src=${normalizeWord(value)}&r=${speed}&key=${key}&hl=es-es`;
-    link = getLocalSoundURL(value);
+    if( useLocalAudio ){
+        link = getLocalSoundURL(value);
+    }
     video.pause();
     
     video.onended = callback;
