@@ -1,3 +1,19 @@
+// -*- mode: js2; -*-
+
+import {
+    secretos as secretosOriginales,
+    palabra,
+    descripcion,
+} from "./secretos.js";
+
+import {
+    normalizeWord,
+    getLocalSoundURL,
+
+    mensajeCorrecto,
+    mensajeIncorrecto
+} from "./audios.js";
+
 function l(msg){ console.log(msg); }
 function e(id){ return document.getElementById(id); }
 function c(tag){ return document.createElement(tag); }
@@ -12,7 +28,7 @@ function tc(el,c){ if(hc(el,c)) rc(el,c); else ac(el,c); }
 
 var listaDeErrores = [];
 var palabrasJugadas = 0;
-var fallado = false
+var fallado = false;
 var palabrasFalladas = 0;
 var currentStrike = 0;
 var bigestStrike = 0;
@@ -31,13 +47,15 @@ function shufle(array){
 
     return array;
 }
+let secretos = secretosOriginales.slice();
+
 var index = secretos.length+100;
 function nextSecreto(){
-    fallado = false
+    fallado = false;
     
-    index++
+    index++;
     if(secretos.length-1>index){
-        return secretos[index]
+        return secretos[index];
     }else{
         index = 0;
         secretos = shufle(secretos);
@@ -53,42 +71,32 @@ function siguiente(){
     escuchar();
 }
 
-function normalizeWord(w){
-    return encodeURI( w.trim().toLowerCase() );
-}
+let useLocalAudio = true;
 
 function play(video,value,speed,callback){
     l(value);
     if( !speed || !Number.isInteger(speed)){
         speed = 0;
     }
-    value = normalizeWord(value);
     let key = 'f6b512bd777f413089885ecf5f891b38';
-    let link = `https://api.voicerss.org/?src=${value}&r=${speed}&key=${key}&hl=es-es`
+    let link = `https://api.voicerss.org/?src=${normalizeWord(value)}&r=${speed}&key=${key}&hl=es-es`;
+    if( useLocalAudio ){
+        link = getLocalSoundURL(value);
+    }
     video.pause();
+    
     video.onended = callback;
     if( video.src != link ){
         video.src = link;
-        video.onloadeddata = function(){ video.play(); }; 
+        video.load();
+        video.onloadeddata = function(){
+            video.play();
+        }; 
     }
     else{
         video.currentTime = 0;
         video.play();
     }
-}
-
-function palabra(secreto){
-    if( typeof secreto === "string" )
-        return secreto;
-    else
-        return secreto[0];
-}
-
-function descripcion(secreto){
-    if( typeof secreto === "string" )
-        return secreto;
-    else
-        return secreto[0] + ", " + secreto[1];
 }
 
 function later(f,m){
@@ -117,7 +125,7 @@ function acierto(p,callback){
         if( callback )
             callback();
     }
-    play(e("aciertoPlayer"),"Correcto, la siguiente palabra es",0,realCallback);
+    play(e("aciertoPlayer"),mensajeCorrecto,0,realCallback);
 }
 
 function fallo(secreto,p){
@@ -131,7 +139,7 @@ function fallo(secreto,p){
     resultado.miss();
     e("palabra").value="";
     disableButtons(true);
-    play( e("falloPlayer"), "Incorrecto. Intenta otra vez", 0, escuchar );
+    play( e("falloPlayer"), mensajeIncorrecto, 0, escuchar );
 }
 
 
