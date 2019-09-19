@@ -160,7 +160,6 @@ function comparaPalabraConSecreto(p){
     let pNormal = p.trim();
     let secretoNormal = palabra(secreto).trim();
     const ret = pNormal == secretoNormal;
-    console.log( `comparaPalabraConSecreto: ${p} ${secreto} ${ret}`);
     return ret;
 }
 
