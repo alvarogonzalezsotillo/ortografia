@@ -11,22 +11,7 @@ Se bajarán los audios nuevos al directorio "audios". Se bajarán solo los que n
 `;
 
 console.log(instrucciones);
-
-function addSecreto(s){
-    if( secretos.indexOf(s) < 0 ){
-        
-        secretos.push(s);
-    }
-}
-
-function addSecretos(str){
-    str.
-	replace(/\.|;|:|1|2|3|4|5|6|7|8|9|0|\n/g, " ").
-        split(" ").
-        filter( (el) => el != "" ).
-        forEach( addSecreto );
-}
-
+ 
 export let secretos = [
     "Artículo",
     "Fernández",
@@ -34,8 +19,7 @@ export let secretos = [
     "Inés",
     "Marqués",
     "Percibir",
-    "Relacionado",
-    "Trébol",
+    "trébol",
     "a menudo",
     "abatido",
     "absurdo",
@@ -183,8 +167,8 @@ export let secretos = [
     "árbol",
     "áureo",
     "ébano",
-    ["Si","Condicional"],
-    ["Sí","Afirmativo"],
+    ["si","Condicional"],
+    ["sí","Afirmativo"],
     ["asta", "el cuerno"],
     ["atrás", "la parte trasera"],
     ["baca", "utensilio"],
@@ -207,10 +191,9 @@ export let secretos = [
     ["mas", "conjunción similar a pero"],
     ["mas", "disyuntiva"],
     ["más", "de adición"],
-    ["más", "de sumar"],
     ["nuevo", " a estrenar"],
     ["ovni","platillo volante"],
-    ["prohíbe", "del verbo prohibir"]
+    ["prohíbe", "del verbo prohibir"],
     ["refiriéndose","hacer alusión a algo"],
     ["será", "del verbo ser"],
     ["traba", "sinónimo de obstáculo"],
@@ -219,6 +202,19 @@ export let secretos = [
     ["vez","sinónimo de turno"],
     ["voy", "del verbo ir"],
     ["él","Pronombre"],
+    "Ramón",
+    "Jiménez",
+    "razón",
+    "crítica",
+    "pérdida",
+    "favorecer",
+    "político",
+    ["evadían","del verbo evadir"],
+    "situación",
+    "detrás",
+    ["está","del verbo estar"],
+    "Rubén",
+    "último"
 ];
 
 

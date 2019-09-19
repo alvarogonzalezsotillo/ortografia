@@ -113,9 +113,9 @@ function disableButtons(b){
 }
 
 function acierto(p,callback){
-    palabrasJugadas++
+    palabrasJugadas++;
     if(currentStrike>bigestStrike) bigestStrike = currentStrike;
-    currentStrike++
+    currentStrike++;
     actualizaReporte();
     resultado.hit();
     e("palabra").value = "";
@@ -124,7 +124,7 @@ function acierto(p,callback){
         disableButtons( false );
         if( callback )
             callback();
-    }
+    };
     play(e("aciertoPlayer"),mensajeCorrecto,0,realCallback);
 }
 
@@ -156,10 +156,17 @@ e("palabra").onkeypress = function(ev){
     }
 }
 
+function comparaPalabraConSecreto(p){
+    let pNormal = p.trim();
+    let secretoNormal = palabra(secreto).trim();
+    return pNormal == secretoNormal;
+}
+
+
 e("enviar").onclick = function(){
     let p = v("palabra");
     e("palabra").focus();
-    if( p.toLowerCase().trim() === palabra(secreto).toLowerCase().trim() ){
+    if(comparaPalabraConSecreto(p)){
         acierto(secreto,siguiente);
     }
     else{
@@ -171,7 +178,6 @@ e("enviar").onclick = function(){
 e("reporte").onclick = function () {
     tc(e("reportebox"),"oculto");
     actualizaReporte();
-
 }
 function actualizaReporte(){
     if(currentStrike>bigestStrike) bigestStrike = currentStrike;
