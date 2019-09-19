@@ -18,7 +18,7 @@ export let secretos = [
     "Ibáñez",
     "Inés",
     "Marqués",
-    "Percibir",
+    "percibir",
     "trébol",
     "a menudo",
     "abatido",
