@@ -159,7 +159,9 @@ e("palabra").onkeypress = function(ev){
 function comparaPalabraConSecreto(p){
     let pNormal = p.trim();
     let secretoNormal = palabra(secreto).trim();
-    return pNormal == secretoNormal;
+    const ret = pNormal == secretoNormal;
+    console.log( `comparaPalabraConSecreto: ${p} ${secreto} ${ret}`);
+    return ret;
 }
 
 
