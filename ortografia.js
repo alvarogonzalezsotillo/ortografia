@@ -253,7 +253,9 @@ function fillInfo(){
     });
     secretos.forEach( function(s){
         let iw = c("infoWord");
-        iw.innerHTML = descripcion(s);
+        let desc = descripcion(s);
+        iw.innerHTML = desc;
+        iw.onclick = ()=> play(e("secretoPlayer"), desc,-3 );
         a(e("infoContents"),iw);
     });
 
